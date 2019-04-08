@@ -16,3 +16,7 @@ def hello():
     # TODO: get photos from place urls
     print(candidates)
     return str(json)
+
+
+if __name__ == '__main__':
+    app.run()
