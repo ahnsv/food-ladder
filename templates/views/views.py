@@ -1,5 +1,6 @@
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, abort, request
 from factory import searchByKeyword, address_to_coords
+from jinja2 import TemplateNotFound
 view_blueprint = Blueprint('view', __name__)
 
 # TEST
@@ -11,4 +12,12 @@ places = searchByKeyword(coord={'x': addresses[0]['x'],
 @view_blueprint.route('/')
 @view_blueprint.route('/view')
 def index():
-    return render_template("index.html", places=places)
+    try:
+        return render_template("index.html")
+    except TemplateNotFound:
+        abort(404)
+
+
+@view_blueprint.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
