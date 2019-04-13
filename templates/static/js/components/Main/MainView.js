@@ -1,20 +1,19 @@
 import React from 'react'
 import axios from 'axios'
-import './css/MainView.css'
 import {MainStarter} from "./MainStarter";
 import {MainListView} from "./MainListView";
 import {MainLadderView} from "./MainLadderView";
 
 export default class MainView extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             location: '',
             query: '맛집',
             stage: 0
-        }
-        this.initialState = this.state
-        this.list = []
+        };
+        this.initialState = this.state;
+        this.list = [];
         this.selection = []
     }
 
@@ -28,7 +27,7 @@ export default class MainView extends React.Component {
                 }
             }).then(d => {
                 if (d.status !== 200) {
-                    console.log(d.statusText)
+                    console.log(d.statusText);
                     return
                 }
                 this.list = d
@@ -45,12 +44,12 @@ export default class MainView extends React.Component {
             case "location":
                 this.setState({
                     location: e.target.value
-                })
+                });
                 break;
             case "query":
                 this.setState({
                     query: e.target.value
-                })
+                });
                 break;
         }
     }
@@ -87,5 +86,5 @@ export default class MainView extends React.Component {
 
 MainView.defaultProps = {
 //    TODO: pull location info from GPS
-}
+};
 

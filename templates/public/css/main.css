@@ -1,0 +1,23 @@
+.main-view > div {
+    height: inherit;
+}
+
+.main-view--stage-1--title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.main-input > input {
+    text-align: center;
+    border: none;
+}
