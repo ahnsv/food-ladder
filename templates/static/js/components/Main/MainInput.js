@@ -7,7 +7,7 @@ const MainInput = (props) => {
     return (
         <div className="main-input">
             <label>{props.title}</label>
-            <input type="text" className={props.type} placeholder={props.placeholder} onKeyPress={submit} onChange={change}/>
+            <input type="text" autoFocus={true} className={props.type} placeholder={props.placeholder} onKeyPress={submit} onChange={change}/>
         </div>
     )
 }

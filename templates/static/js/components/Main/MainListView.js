@@ -15,7 +15,7 @@ class MainListView extends React.Component {
 
     componentDidMount() {
         const self = this
-        self.props.data.data.map(function(v, k) {
+        self.props.data.data.map(function (v, k) {
             return axios.get("https://dapi.kakao.com/v2/search/image", {
                 params: {
                     query: `${self.props.query} ${v['place_name']}`,
@@ -50,9 +50,12 @@ class MainListView extends React.Component {
                                 <div>{address_name}</div>
                                 <div>
                                     {
-                                        (this.state.images.length !== 0) ? this.state.images.map((i, k) => <img
-                                                src={i['image_url']}
-                                                key={k}/>) :
+                                        (this.state.images.length !== 0) ? this.state.images.map((i, k) => {
+                                                if (i.length === 0) return;
+                                                return i.map((v, ky) => <img
+                                                    src={v['image_url']}
+                                                    key={ky}/>)
+                                            }) :
                                             <div className="no_image">No image Available</div>
                                     }
                                 </div>

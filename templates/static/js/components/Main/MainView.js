@@ -3,6 +3,7 @@ import axios from 'axios'
 import './css/MainView.css'
 import {MainStarter} from "./MainStarter";
 import {MainListView} from "./MainListView";
+import {MainLadderView} from "./MainLadderView";
 
 export default class MainView extends React.Component {
     constructor(props) {
@@ -74,6 +75,10 @@ export default class MainView extends React.Component {
                 {
                     this.state.stage === 1 &&
                     <MainListView data={this.list} select={this.handleSelection.bind(this)} nextStage={this.handleNextStage.bind(this)} query={this.state.location}/>
+                }
+                {
+                    this.state.stage === 2 &&
+                        <MainLadderView select={this.selection} />
                 }
             </div>
         )

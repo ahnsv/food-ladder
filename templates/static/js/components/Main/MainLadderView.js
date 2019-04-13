@@ -6,6 +6,7 @@ class MainLadderView extends React.Component {
         this.state = {
             status: 'ready'
         }
+        console.log(`${this.props.select.length} are received!`)
     }
 
 
