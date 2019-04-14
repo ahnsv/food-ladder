@@ -55,6 +55,9 @@ export default class MainView extends React.Component {
     }
 
     handleSelection(data) {
+        if (this.selection.filter(s => JSON.stringify(s) === JSON.stringify(data)).length !== 0) {
+            return
+        }
         this.selection = [...this.selection, data]
     }
 

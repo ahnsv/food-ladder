@@ -2,6 +2,14 @@
     font-family: 'Spoqa Han Sans', sans-serif;
 }
 
+@keyframes turn {
+    100% {
+        background: whitesmoke;
+        color: black;
+        border: 3px solid whitesmoke;
+    }
+}
+
 body {
     background: #f98284;
 }
@@ -9,6 +17,8 @@ body {
 .main-view {
     height: calc(100vh - 16px);
     color: #f0f1ec;
+    visibility: visible;
+    transition: visibility 0s linear 500ms;
 }
 
 .main-view > div {
@@ -46,13 +56,40 @@ body {
     min-height: 2em;
     border-radius: 5px;
     font-size: 1.5em;
+    max-width: 65vw;
+}
+
+.list-view {
+    border-radius: 5px;
+    padding: 5vw;
+    border: 3px solid;
+    margin-bottom: 5vh;
 }
 
 .list-view.selected {
-    border: 1px solid;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    animation: turn linear 300ms forwards;
+}
+
+.list-view--images {
+    overflow-y: hidden;
+    max-height: 130px;
+    display: flex;
+}
+
+.list-view--title {
+    font-size: 2em;
+    font-weight: bolder;
+}
+
+.list-view--title > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.main-list-view--submit {
+    font-size: 2em;
+    text-align: right;
+    font-weight: bolder;
 }
 
 .ladder-view--result, .ladder-view--user-pick {
